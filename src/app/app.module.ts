@@ -25,6 +25,9 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 
 //Services
 import { AuthService } from './services/auth.service';
+import { StoreModule } from '@ngrx/store';
+import { AppReducers } from './app.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -48,6 +51,10 @@ import { AuthService } from './services/auth.service';
     AngularFireModule.initializeApp(environment.firebase),
     provideFirestore(() => getFirestore()),
     provideAuth(() => getAuth()),
+
+    StoreModule.forRoot(AppReducers, {}),
+
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

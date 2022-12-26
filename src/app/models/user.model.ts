@@ -5,6 +5,10 @@ export interface User{
 }
 
 export class UserDoc{
+  static fromFirebase({uid, userName, email}:any){
+    return new UserDoc(uid, userName, email);
+  }
+
   constructor(
     public uid: string,
     public userName: string,

@@ -19,6 +19,8 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
+    "@ngrx/store": "^14.0.0",
+    "@ngrx/store-devtools": "^14.0.0",
     "bootstrap": "^5.2.3",
     "rxjs": "~7.5.0",
     "sweetalert2": "^11.6.16",
