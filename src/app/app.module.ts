@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { environment } from 'src/environments/environment';
 
+import { NgChartsModule } from 'ng2-charts';
 import {ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -28,6 +29,7 @@ import { AuthService } from './services/auth.service';
 import { StoreModule } from '@ngrx/store';
 import { AppReducers } from './app.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { OrdenIngresoPipe } from './pipes/orden-ingreso.pipe';
 
 @NgModule({
   declarations: [
@@ -40,11 +42,13 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     StatsComponent,
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    OrdenIngresoPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgChartsModule,
     ReactiveFormsModule,
 
     provideFirebaseApp(() => initializeApp(environment.firebase)),
