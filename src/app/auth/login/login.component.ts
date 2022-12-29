@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import {FormGroup, Validators, FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -46,14 +46,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     if(this.loginForm.invalid){return;}
 
     this.store.dispatch(isLoading());
-
-    // Swal.fire({
-    //   title: 'Espere por favor',
-    //   didOpen: () => {
-
-    //     Swal.showLoading(null)
-    //   }
-    // })
 
     const { email, password } = this.loginForm.value;
 
