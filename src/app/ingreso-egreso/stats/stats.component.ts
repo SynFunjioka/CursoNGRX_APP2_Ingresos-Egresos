@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { ChartData, ChartType } from 'chart.js';
 import { ChartEvent } from 'chart.js/dist/core/core.plugins';
-import { AppState } from 'src/app/app.reducer';
 import { IngresoEgreso } from 'src/app/models/ingreso-egreso.model';
+import { AppStateWithIngreso } from '../ingreso-egreso.reducer';
 
 @Component({
   selector: 'app-stats',
@@ -28,7 +28,7 @@ export class StatsComponent implements OnInit {
     ]
   };
 
-  constructor(private store:Store<AppState>) { }
+  constructor(private store:Store<AppStateWithIngreso>) { }
 
   ngOnInit(): void {
     this.store.select('ingresosEgresos').subscribe(({items}) => this.generateStat(items))

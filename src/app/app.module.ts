@@ -3,20 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { environment } from 'src/environments/environment';
 
-import { NgChartsModule } from 'ng2-charts';
-import {ReactiveFormsModule} from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { IngresoEgresoComponent } from './ingreso-egreso/ingreso-egreso.component';
-import { DetailComponent } from './ingreso-egreso/detail/detail.component';
-import { StatsComponent } from './ingreso-egreso/stats/stats.component';
-import { FooterComponent } from './shared/footer/footer.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
-import { SidebarComponent } from './shared/sidebar/sidebar.component';
 
 //Firebase
 import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
@@ -29,27 +17,18 @@ import { AuthService } from './services/auth.service';
 import { StoreModule } from '@ngrx/store';
 import { AppReducers } from './app.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { OrdenIngresoPipe } from './pipes/orden-ingreso.pipe';
+
+//* My modules
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
-    RegisterComponent,
-    DashboardComponent,
-    IngresoEgresoComponent,
-    DetailComponent,
-    StatsComponent,
-    FooterComponent,
-    NavbarComponent,
-    SidebarComponent,
-    OrdenIngresoPipe
+    AppComponent
   ],
   imports: [
     BrowserModule,
+    AuthModule,
     AppRoutingModule,
-    NgChartsModule,
-    ReactiveFormsModule,
 
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     AngularFireModule.initializeApp(environment.firebase),

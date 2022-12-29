@@ -6,6 +6,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { dashboardRoutes } from './dashboard/dashboard.routes';
 import { AuthGuard } from './services/auth.guard';
 
+
+
 const routes: Routes = [
   {
     path: 'login',
@@ -16,10 +18,10 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
+    //This is lazy load (I used it before in Angular)
     path: '',
-    component: DashboardComponent,
-    children: dashboardRoutes,
-    canActivate: [AuthGuard]
+    canLoad: [AuthGuard],
+    loadChildren: () => import('./ingreso-egreso/ingreso-egreso.module').then((m) => m.IngresoEgresoModule),
   },
   {
     path: '**',
